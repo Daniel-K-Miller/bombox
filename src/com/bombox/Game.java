@@ -1,23 +1,22 @@
 package com.bombox;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
-import com.bombox.utils.Enums.Mode;
+import com.bombox.utils.Enums.*;
 import com.bombox.models.*;
-import com.bombox.utils.Formatter;
+import com.bombox.utils.AnyKey;
 import com.bombox.utils.Validator;
-import com.bombox.utils.Validator.*;
 
 public class Game {
 
     // config
     static ArrayList<Player> Players = new ArrayList<Player>();
     static ArrayList<Bot> Bots = new ArrayList<Bot>();
-    static int TotalRound = 0;
+    static int TotalRounds = 0;
     static ArrayList<Round> Rounds = new ArrayList<Round>();
-    static int NumberOfPlayer = 0;
-    static int NumberOfBots = 3;
+    static int NumberOfPlayers = 0;
+    static int NumberOfBots = 0;
     static int MaxNumberGuess = 10;
     static Mode GameMode = Mode.DEFAULT;
     static boolean IsModeSet = false;
@@ -30,10 +29,31 @@ public class Game {
 
     public static void Init() {
         System.out.println("Game initiated");
-        Game.GeneratePlayer();
+        Game.GeneratePlayers();
+    }
+
+    private static void ExplainRules() {
+        // series of strings printed to console explaining rules
+        System.out.printf("\n             WELCOME TO BOMB BLAST!!!!!!!!!!!!\n\n ");
+        AnyKey.pressAnyKeyToContinue();
+        System.out.printf("- Your object is to survive as long as possible, and accumlate the most points.\n- You accumulate points by not triggering the bomb and therefore surviving the round.\nWhere is the bomb? Within a random box\n- All boxes are empty apart from ONE\n- If you select the bomb ridden box you will receive NO POINTS!\nAnd the survivors will receive points based on how long it took the group to find the bomb\n- After a selected amount of rounds whoever has survived the most amount of attempts wins!!\n\n");
+        System.out.printf("Press 'Any Key' to start setting up the game...\n");
+    }
+
+    private  static void SetMode() {
+
+        // array using Enums to be used for validation
+        Enum[] modes = {Mode.SINGLEPLAYER, Mode.MULTIPLAYER};
+        // setting GameMode by passing in array to validator which will prompt what Enum is wanted
+        Game.GameMode = (Mode) Validator.Mode(modes);
+
+        // TODO could possibily rewrite so it's not an enum array but the actual enum
     }
 
     private static void GenerateBot() {
+
+        System.out.println("Enter how many bots you want to play against...");
+        Game.NumberOfBots = Validator.Number(1, 3);
 
         ArrayList<String> takenNames = new ArrayList<>();
 
@@ -50,18 +70,29 @@ public class Game {
         }
     }
 
-    private static void GeneratePlayer() {
+    private static void GeneratePlayers() {
 
-        Player player = new Player("Charlie");
+        if (Game.GameMode == Mode.SINGLEPLAYER) {
+            Game.NumberOfPlayers = 1;
+        } else if (Game.GameMode == Mode.MULTIPLAYER) {
+            System.out.println("Enter how many players are going to participate...");
+            Game.NumberOfPlayers = Validator.Number(2, 4);
+        }
 
-        ArrayList<Integer> previousGuesses = new ArrayList<Integer>();
+        //  validating a name String by making sure it is
+        //  between a certain length, then creating an instance
+        //  of Player using the validated name.
+        for (int i = 0; i < Game.NumberOfPlayers; i++) {
 
-        previousGuesses.add(7);
-        previousGuesses.add(1);
-        previousGuesses.add(2);
-
-        Formatter.List(previousGuesses);
-
+            // doing a print to signify a name input
+            System.out.printf("Player %s ", i + 1);
+            // name inputted and validated
+            String name = Validator.Name(3, 12);
+            // new instance of player created
+            Player player = new Player(name);
+            // adding player instance to Player List
+            Game.Players.add(player);
+        }
     }
 
 }

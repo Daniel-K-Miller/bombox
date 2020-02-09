@@ -57,7 +57,7 @@ public class Validator {
     }
 
     // asks for an input; checks whether length is between 2 parameters; otherwise recurse
-    public static String Name(String name, int minLength, int maxLength) {
+    public static String Name(int minLength, int maxLength) {
 
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a name: ");
@@ -66,11 +66,42 @@ public class Validator {
         // if not between minNum & maxNum
         if (guess.length() < minLength || guess.length() > maxLength) {
             System.out.printf("ERROR! Name has to be between %s and %s characters\n", minLength, maxLength);
-            return Validator.Name(name, minLength, maxLength);
+            return Validator.Name(minLength, maxLength);
         } else {
             // return valid input between minNum & maxNum with no errors
             return guess;
         }
+    }
+
+    public static Enum Mode (Enum[] enums) {
+        String message = "";
+
+        for (int i = 0; i < enums.length; i++) {
+            if (i != enums.length - 1) {
+                message += "Enter " + (i + 1) + " for " + enums[i] + ", ";
+            } else if (i == enums.length - 1) {
+                message += "Enter " + (i + 1) + " for " + enums[i] + ".";
+            }
+        }
+        System.out.println(message);
+        Scanner input = new Scanner(System.in);
+
+        try {
+            int number = input.nextInt();
+            // if not between minNum & maxNum
+            if (number < 1 || number > enums.length) {
+                System.out.printf("ERROR! Number has to be between %s and %s\n", 1, enums.length);
+                return Validator.Mode(enums);
+            } else {
+                // return valid input between minNum & maxNum with no errors
+                return enums[number - 1];
+            }
+        }
+        // input exception re-run method
+        catch (Exception e) {
+            return Validator.Mode(enums);
+        }
+
     }
 }
 
