@@ -7,6 +7,7 @@ import com.bombox.utils.Enums.*;
 import com.bombox.models.*;
 import com.bombox.utils.AnyKey;
 import com.bombox.utils.Validator;
+import com.bombox.models.Round;
 
 public class Game {
 
@@ -28,8 +29,15 @@ public class Game {
     static int CurrentRound = 0;
 
     public static void Init() {
-        System.out.println("Game initiated");
+
+        Game.ExplainRules();
+        Game.SetMode();
         Game.GeneratePlayers();
+        if (Game.GameMode == Mode.SINGLEPLAYER) {
+            GenerateBots();
+        }
+
+        Round test = new Round(1, Players, Bots, 3, 10);
     }
 
     private static void ExplainRules() {
@@ -50,7 +58,7 @@ public class Game {
         // TODO could possibily rewrite so it's not an enum array but the actual enum
     }
 
-    private static void GenerateBot() {
+    private static void GenerateBots() {
 
         System.out.println("Enter how many bots you want to play against...");
         Game.NumberOfBots = Validator.Number(1, 3);
