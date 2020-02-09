@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04f798c5-f399-40f0-ae7b-afe8a31aaf5e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/bombox/com/bombox/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bombox/com/bombox/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/bombox/com/bombox/models/Bot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bombox/com/bombox/models/Bot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bombox/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bombox/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bombox/models/Bot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bombox/models/Bot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bombox/models/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bombox/models/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bombox/models/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bombox/models/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bombox/utils/Enums.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bombox/utils/Enums.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +26,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1XXRLNZ2eqPKUuSPhL4o6Bs65r0" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -68,21 +70,21 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1060" y="456" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1581194120500" />
-    <state width="2517" height="401" key="GridCell.Tab.0.bottom" timestamp="1581209461445">
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom" timestamp="1581252172667">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1581209461445" />
-    <state width="2517" height="401" key="GridCell.Tab.0.center" timestamp="1581209461445">
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1581252172667" />
+    <state width="2517" height="401" key="GridCell.Tab.0.center" timestamp="1581252172667">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1581209461445" />
-    <state width="2517" height="401" key="GridCell.Tab.0.left" timestamp="1581209461445">
+    <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1581252172667" />
+    <state width="2517" height="401" key="GridCell.Tab.0.left" timestamp="1581252172666">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1581209461445" />
-    <state width="2517" height="401" key="GridCell.Tab.0.right" timestamp="1581209461445">
+    <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1581252172666" />
+    <state width="2517" height="401" key="GridCell.Tab.0.right" timestamp="1581252172667">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1581209461445" />
+    <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1581252172667" />
   </component>
 </project>
