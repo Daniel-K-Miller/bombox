@@ -1,9 +1,11 @@
 package com.bombox;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.bombox.utils.Enums.Mode;
 import com.bombox.models.*;
+import com.bombox.utils.Formatter;
 import com.bombox.utils.Validator;
 import com.bombox.utils.Validator.*;
 
@@ -54,10 +56,11 @@ public class Game {
 
         ArrayList<Integer> previousGuesses = new ArrayList<Integer>();
 
+        previousGuesses.add(7);
         previousGuesses.add(1);
         previousGuesses.add(2);
 
-
+        Formatter.List(previousGuesses);
 
     }
 
