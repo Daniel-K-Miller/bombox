@@ -1,6 +1,8 @@
 package com.bombox;
 
 import java.util.ArrayList;
+
+import com.bombox.models.Character;
 import com.bombox.utils.Enums.Mode;
 import com.bombox.models.*;
 
@@ -25,6 +27,22 @@ public class Game {
 
     public static void Init() {
         System.out.println("Game initiated");
+        Game.GenerateBot();
+    }
+
+    private static void GenerateBot() {
+
+        ArrayList<String> takenNames = new ArrayList<>();
+
+        Bot test = new Bot(takenNames);
+    }
+
+    private static void GeneratePlayer() {
+
+        Player player = new Player("Charlie");
+
+        System.out.println(player.getName());
+
     }
 
 }

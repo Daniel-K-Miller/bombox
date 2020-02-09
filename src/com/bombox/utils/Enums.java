@@ -8,4 +8,10 @@ public class Enums {
         MULTIPLAYER
     }
 
+    public enum CharacterType {
+        DEFAULT,
+        PLAYER,
+        BOT
+    }
+
 }
