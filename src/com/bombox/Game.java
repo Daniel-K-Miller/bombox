@@ -52,7 +52,12 @@ public class Game {
 
         Player player = new Player("Charlie");
 
-        Validator.Number();
+        ArrayList<Integer> previousGuesses = new ArrayList<Integer>();
+
+        previousGuesses.add(1);
+        previousGuesses.add(2);
+
+
 
     }
 
