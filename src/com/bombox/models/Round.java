@@ -1,6 +1,7 @@
 package com.bombox.models;
 
 import java.util.ArrayList;
+import com.bombox.utils.Formatter;
 
 public class Round {
 
@@ -8,6 +9,7 @@ public class Round {
     int totalRounds = 0;
     int bombNumber = 0;
     ArrayList<Character> allPlayers = new ArrayList<Character>();
+    ArrayList<Integer> previousGuesses = new ArrayList<Integer>();
     int maxNumberGuess = 0;
     int amountOfTurns = 0;
     Character characterThatTriggeredBomb = null;
@@ -21,10 +23,31 @@ public class Round {
         this.allPlayers.addAll(players);
         this.allPlayers.addAll(bots);
         this.maxNumberGuess = maxNumberGuess;
+
+
+        this.Init();
+    }
+
+    private void Init() {
+
+
     }
 
     private int GenerateBombNumber() {
         return (int) Math.ceil(Math.random() * this.maxNumberGuess);
     }
 
+    public void displayPreviousGuesses() {
+
+        if (this.previousGuesses.size() > 0) {
+            Formatter.List(this.previousGuesses);
+        }
+
+    }
+
+    private void triggerRoundGuesses() {
+        for (character : this.allPlayers) {
+            // loop through guesses
+        }
+    }
 }
