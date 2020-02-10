@@ -22,5 +22,26 @@ public class Bot extends Character {
         super.Type = CharacterType.BOT;
     }
 
+    public int makeGuess(ArrayList<Integer> previousGuesses, int bombNumber, int maxNumberGuess) {
 
+        ArrayList<Integer> availableGuesses = new ArrayList<Integer>();
+
+        // filling available guesses with all possible answers
+        for (int i = 0; i < maxNumberGuess; i++) {
+            availableGuesses.add(i + 1);
+        }
+
+        // looping through previous guesses
+        for (int previousGuess : previousGuesses) {
+            // if previousGuess is in available guesses remove it from that arrayList
+            if (availableGuesses.contains(previousGuess)) {
+                availableGuesses.remove(previousGuess);
+            }
+        }
+
+        int randomIndex = (int) Math.floor(Math.random() * availableGuesses.size());
+        int randomGuess = availableGuesses.get(randomIndex);
+
+        return randomGuess;
+    }
 }

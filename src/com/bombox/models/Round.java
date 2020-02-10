@@ -46,8 +46,8 @@ public class Round {
     }
 
     private void triggerRoundGuesses() {
-        for (character : this.allPlayers) {
-            // loop through guesses
+        for (Character character : this.allPlayers) {
+            // TODO might need to re-think this, seperate bots/players
         }
     }
 }
