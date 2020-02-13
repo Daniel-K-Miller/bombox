@@ -17,14 +17,14 @@ public class Player extends Character  {
 
     public int MakeGuess(ArrayList<Integer> previousGuesses, int bombNumber, int maxNumberGuess) {
 
-        System.out.printf("%s make a guess", this.Name);
+        System.out.printf("%s make a guess between 1 - %s\n", this.Name, maxNumberGuess);
 
         int guess = Validator.Number(1, 10);
 
         if (guess != bombNumber) {
-            System.out.printf("%s guessed %s and avoided the bomb!", this.Name, guess);
+            System.out.printf("%s guessed %s and avoided the bomb!\n", this.Name, guess);
         } else if (guess == bombNumber) {
-            System.out.printf("%s guessed %s and DETONATED THE BOMB!!", this.Name, guess);
+            System.out.printf("%s guessed %s and DETONATED THE BOMB!!\n", this.Name, guess);
         }
 
         return guess;

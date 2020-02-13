@@ -13,7 +13,7 @@ public class Round {
     int maxNumberGuess = 0;
     int amountOfTurns = 0;
     Character characterThatTriggeredBomb = null;
-    boolean isBombTriggered = false;
+    boolean hasBombTriggered = false;
 
     public Round(int roundNumber, ArrayList<Player> players, ArrayList<Bot> bots, int totalRounds, int maxNumberGuess) {
         this.roundNumber =  roundNumber;
@@ -46,10 +46,16 @@ public class Round {
     }
 
     private void triggerRoundGuesses() {
-        for (Character character : this.allPlayers) {
-            this.displayPreviousGuesses();
-            int guess = character.MakeGuess(this.previousGuesses, this.bombNumber, this.maxNumberGuess);
-            this.previousGuesses.add(guess);
+        while (this.hasBombTriggered == false) {
+            for (Character character : this.allPlayers) {
+                this.displayPreviousGuesses();
+                int guess = character.MakeGuess(this.previousGuesses, this.bombNumber, this.maxNumberGuess);
+                this.previousGuesses.add(guess);
+                if (guess == this.bombNumber) {
+                    this.hasBombTriggered = true;
+                    break;
+                }
+            }
         }
     }
 }

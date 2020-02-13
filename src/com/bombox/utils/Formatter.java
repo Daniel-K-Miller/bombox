@@ -16,7 +16,7 @@ public class Formatter {
             if (i < previousGuesses.size() - 1) {
                 message += guess.toString() + ", ";
             } else {
-                message += guess.toString() + ".";
+                message += guess.toString() + ".\n";
             }
         }
         System.out.print(message);

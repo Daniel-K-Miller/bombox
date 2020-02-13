@@ -35,7 +35,9 @@ public class Bot extends Character {
         for (int previousGuess : previousGuesses) {
             // if previousGuess is in available guesses remove it from that arrayList
             if (availableGuesses.contains(previousGuess)) {
-                availableGuesses.remove(previousGuess);
+                int index = availableGuesses.indexOf(previousGuess);
+                availableGuesses.remove(index);
+                // TODO might still be bugged not tested
             }
         }
 
@@ -43,9 +45,9 @@ public class Bot extends Character {
         int randomGuess = availableGuesses.get(randomIndex);
 
         if (randomGuess != bombNumber) {
-            System.out.printf("%s guessed %s and avoided the bomb!", this.Name, randomGuess);
+            System.out.printf("%s guessed %s and avoided the bomb!\n", this.Name, randomGuess);
         } else if (randomGuess == bombNumber) {
-            System.out.printf("%s guessed %s and DETONATED THE BOMB!!", this.Name, randomGuess);
+            System.out.printf("%s guessed %s and DETONATED THE BOMB!!\n", this.Name, randomGuess);
         }
 
         return randomGuess;
