@@ -2,8 +2,9 @@ package com.bombox.models;
 
 import com.bombox.utils.Enums.CharacterType;
 import java.util.UUID;
+import java.util.ArrayList;
 
-public class Character {
+public abstract class Character {
 
     // config
     protected UUID Id = UUID.randomUUID();
@@ -27,4 +28,5 @@ public class Character {
         return Id.toString();
     }
 
+    public abstract int MakeGuess(ArrayList<Integer> previousGuesses, int bombNumber, int maxNumberGuess);
 }

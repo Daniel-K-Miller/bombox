@@ -15,7 +15,7 @@ public class Player extends Character  {
         super.Type = CharacterType.PLAYER;
     }
 
-    public int makeGuess(ArrayList previousGuesses, int bombNumber, int maxNumberGuess) {
+    public int MakeGuess(ArrayList<Integer> previousGuesses, int bombNumber, int maxNumberGuess) {
 
         System.out.printf("%s make a guess", this.Name);
 

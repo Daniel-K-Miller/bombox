@@ -29,8 +29,8 @@ public class Round {
     }
 
     private void Init() {
-
-
+        this.GenerateBombNumber();
+        this.triggerRoundGuesses();
     }
 
     private int GenerateBombNumber() {
@@ -47,7 +47,9 @@ public class Round {
 
     private void triggerRoundGuesses() {
         for (Character character : this.allPlayers) {
-            // TODO might need to re-think this, seperate bots/players
+            this.displayPreviousGuesses();
+            int guess = character.MakeGuess(this.previousGuesses, this.bombNumber, this.maxNumberGuess);
+            this.previousGuesses.add(guess);
         }
     }
 }

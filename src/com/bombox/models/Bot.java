@@ -22,7 +22,7 @@ public class Bot extends Character {
         super.Type = CharacterType.BOT;
     }
 
-    public int makeGuess(ArrayList<Integer> previousGuesses, int bombNumber, int maxNumberGuess) {
+    public int MakeGuess(ArrayList<Integer> previousGuesses, int bombNumber, int maxNumberGuess) {
 
         ArrayList<Integer> availableGuesses = new ArrayList<Integer>();
 
@@ -41,6 +41,12 @@ public class Bot extends Character {
 
         int randomIndex = (int) Math.floor(Math.random() * availableGuesses.size());
         int randomGuess = availableGuesses.get(randomIndex);
+
+        if (randomGuess != bombNumber) {
+            System.out.printf("%s guessed %s and avoided the bomb!", this.Name, randomGuess);
+        } else if (randomGuess == bombNumber) {
+            System.out.printf("%s guessed %s and DETONATED THE BOMB!!", this.Name, randomGuess);
+        }
 
         return randomGuess;
     }
