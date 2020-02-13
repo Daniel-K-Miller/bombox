@@ -18,7 +18,7 @@ public class Round {
     public Round(int roundNumber, ArrayList<Player> players, ArrayList<Bot> bots, int totalRounds, int maxNumberGuess) {
         this.roundNumber =  roundNumber;
         this.totalRounds = totalRounds;
-        this.bombNumber = this.GenerateBombNumber();
+        this.bombNumber = 0;
         // building up all players list
         this.allPlayers.addAll(players);
         this.allPlayers.addAll(bots);
@@ -33,8 +33,8 @@ public class Round {
         this.triggerRoundGuesses();
     }
 
-    private int GenerateBombNumber() {
-        return (int) Math.ceil(Math.random() * this.maxNumberGuess);
+    private void GenerateBombNumber() {
+        this.bombNumber = (int) Math.ceil(Math.random() * this.maxNumberGuess);
     }
 
     public void displayPreviousGuesses() {

@@ -16,7 +16,7 @@ public class Bot extends Character {
             names.removeIf(name -> takenName == name);
         }
         int random = (int)Math.floor(Math.random() * names.size());
-        super.Name = names.get(random);
+        super.Name = "bot_" + names.get(random);
 
         // setting character type
         super.Type = CharacterType.BOT;

@@ -19,7 +19,7 @@ public class Player extends Character  {
 
         System.out.printf("%s make a guess between 1 - %s\n", this.Name, maxNumberGuess);
 
-        int guess = Validator.Number(1, 10);
+        int guess = Validator.Number(1, 10, previousGuesses);
 
         if (guess != bombNumber) {
             System.out.printf("%s guessed %s and avoided the bomb!\n", this.Name, guess);
