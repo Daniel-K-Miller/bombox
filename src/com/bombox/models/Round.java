@@ -30,7 +30,7 @@ public class Round {
 
     private void Init() {
         this.GenerateBombNumber();
-        this.triggerRoundGuesses();
+        this.TriggerRoundGuesses();
     }
 
     private void GenerateBombNumber() {
@@ -45,7 +45,7 @@ public class Round {
 
     }
 
-    private void triggerRoundGuesses() {
+    private void TriggerRoundGuesses() {
         while (this.hasBombTriggered == false) {
             for (Character character : this.allPlayers) {
                 this.displayPreviousGuesses();
@@ -53,9 +53,24 @@ public class Round {
                 this.previousGuesses.add(guess);
                 if (guess == this.bombNumber) {
                     this.hasBombTriggered = true;
+                    this.characterThatTriggeredBomb = character;
                     break;
                 }
+                this.amountOfTurns++;
             }
         }
+    }
+
+    private void PrintScores() {
+
+        for (Character character : this.allPlayers) {
+            if (character != this.characterThatTriggeredBomb) {
+                // TODO might not work as protected property
+                character.Score += amountOfTurns;
+            }
+            // TODO again may not work because of protected properties
+            System.out.printf("%s: %s", character.getName(), character.Score);
+        }
+
     }
 }

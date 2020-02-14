@@ -36,8 +36,7 @@ public class Game {
         if (Game.GameMode == Mode.SINGLEPLAYER) {
             GenerateBots();
         }
-
-        Round test = new Round(1, Players, Bots, 3, 10);
+        GenerateRounds();
     }
 
     private static void ExplainRules() {
@@ -105,14 +104,14 @@ public class Game {
 
     private static void GenerateRounds() {
 
-        System.out.printf("How many rounds do you want to play?");
+        System.out.printf("How many rounds do you want to play?\n");
 
         int rounds = Validator.Number(1, 10);
         Game.TotalRounds = rounds;
 
         for (int i = 0; i < rounds; i++) {
             Round round = new Round(i, Game.Players, Game.Bots, Game.TotalRounds, Game.MaxNumberGuess);
-            // TODO trigger round guesses method
+            Game.Rounds.add(round);
         }
 
     }

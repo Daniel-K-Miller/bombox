@@ -33,11 +33,12 @@ public class Bot extends Character {
 
         // looping through previous guesses
         for (int previousGuess : previousGuesses) {
-            // if previousGuess is in available guesses remove it from that arrayList
+            // checking if previousGuess is in available guesses
             if (availableGuesses.contains(previousGuess)) {
+                // getting index of matched item in available guesses
                 int index = availableGuesses.indexOf(previousGuess);
+                // removing that item from available guesses
                 availableGuesses.remove(index);
-                // TODO might still be bugged not tested
             }
         }
 
