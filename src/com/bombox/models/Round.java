@@ -1,7 +1,10 @@
 package com.bombox.models;
 
 import java.util.ArrayList;
+
+import com.bombox.utils.AnyKey;
 import com.bombox.utils.Formatter;
+import com.bombox.utils.Styling;
 
 public class Round {
 
@@ -29,26 +32,28 @@ public class Round {
     }
 
     private void Init() {
+        this.PrintRoundNumber();
         this.GenerateBombNumber();
         this.TriggerRoundGuesses();
+        this.PrintScores();
+    }
+
+    private void PrintRoundNumber() {
+        System.out.printf("%sRound %s of %s started%s\n", Styling.ANSI_CYAN, this.roundNumber, this.totalRounds, Styling.ANSI_RESET);
     }
 
     private void GenerateBombNumber() {
         this.bombNumber = (int) Math.ceil(Math.random() * this.maxNumberGuess);
     }
 
-    public void displayPreviousGuesses() {
-
-        if (this.previousGuesses.size() > 0) {
-            Formatter.List(this.previousGuesses);
-        }
-
-    }
-
     private void TriggerRoundGuesses() {
         while (this.hasBombTriggered == false) {
             for (Character character : this.allPlayers) {
-                this.displayPreviousGuesses();
+                // displaying previous guesses if they exit
+                if (this.previousGuesses.size() > 0) {
+                    Formatter.List(this.previousGuesses);
+                }
+
                 int guess = character.MakeGuess(this.previousGuesses, this.bombNumber, this.maxNumberGuess);
                 this.previousGuesses.add(guess);
                 if (guess == this.bombNumber) {
@@ -63,14 +68,21 @@ public class Round {
 
     private void PrintScores() {
 
+        System.out.printf("\n%sEnd of Round %s Scores...%s\n", Styling.ANSI_PURPLE, this.roundNumber, Styling.ANSI_RESET);
         for (Character character : this.allPlayers) {
             if (character != this.characterThatTriggeredBomb) {
-                // TODO might not work as protected property
                 character.Score += amountOfTurns;
             }
-            // TODO again may not work because of protected properties
-            System.out.printf("%s: %s", character.getName(), character.Score);
+
+            if (character != this.characterThatTriggeredBomb) {
+                System.out.printf("%s: %s\n", character.getName(), character.Score);
+            } else {
+                System.out.printf("%s%s: %s%s\n", Styling.ANSI_RED, character.getName(), character.Score, Styling.ANSI_RESET);
+            }
+
         }
+        System.out.println("\n");
+        AnyKey.pressAnyKeyToContinue();
 
     }
 }

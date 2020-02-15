@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import com.bombox.utils.Enums.CharacterType;
+import com.bombox.utils.Styling;
 
 public class Bot extends Character {
 
@@ -48,9 +49,9 @@ public class Bot extends Character {
         if (randomGuess != bombNumber) {
             System.out.printf("%s guessed %s and avoided the bomb!\n", this.Name, randomGuess);
         } else if (randomGuess == bombNumber) {
-            System.out.printf("%s guessed %s and DETONATED THE BOMB!!\n", this.Name, randomGuess);
+            System.out.printf("%s guessed %s and %sDETONATED%s THE BOMB!!\n", this.Name, randomGuess, Styling.ANSI_RED, Styling.ANSI_RESET);
         }
-
+        System.out.println("\n");
         return randomGuess;
     }
 }

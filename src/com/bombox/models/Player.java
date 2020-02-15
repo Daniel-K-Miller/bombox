@@ -1,6 +1,7 @@
 package com.bombox.models;
 
 import com.bombox.utils.Enums.CharacterType;
+import com.bombox.utils.Styling;
 import com.bombox.utils.Validator;
 
 import java.util.ArrayList;
@@ -24,9 +25,9 @@ public class Player extends Character  {
         if (guess != bombNumber) {
             System.out.printf("%s guessed %s and avoided the bomb!\n", this.Name, guess);
         } else if (guess == bombNumber) {
-            System.out.printf("%s guessed %s and DETONATED THE BOMB!!\n", this.Name, guess);
+            System.out.printf("%s guessed %s and %sDETONATED%s THE BOMB!!\n", this.Name, guess, Styling.ANSI_RED, Styling.ANSI_RESET);
         }
-
+        System.out.println("\n");
         return guess;
     }
 

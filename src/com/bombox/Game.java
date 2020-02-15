@@ -6,6 +6,7 @@ import java.util.Scanner;
 import com.bombox.utils.Enums.*;
 import com.bombox.models.*;
 import com.bombox.utils.AnyKey;
+import com.bombox.utils.Styling;
 import com.bombox.utils.Validator;
 import com.bombox.models.Round;
 
@@ -37,14 +38,14 @@ public class Game {
             GenerateBots();
         }
         GenerateRounds();
+
     }
 
     private static void ExplainRules() {
         // series of strings printed to console explaining rules
-        System.out.printf("\n             WELCOME TO BOMB BLAST!!!!!!!!!!!!\n\n ");
-        AnyKey.pressAnyKeyToContinue();
+        System.out.printf("\n             %sWELCOME TO BOMB BLAST%s!!!!!!!!!!!!\n\n ", Styling.ANSI_BLUE, Styling.ANSI_RESET);
         System.out.printf("- Your object is to survive as long as possible, and accumlate the most points.\n- You accumulate points by not triggering the bomb and therefore surviving the round.\nWhere is the bomb? Within a random box\n- All boxes are empty apart from ONE\n- If you select the bomb ridden box you will receive NO POINTS!\nAnd the survivors will receive points based on how long it took the group to find the bomb\n- After a selected amount of rounds whoever has survived the most amount of attempts wins!!\n\n");
-        System.out.printf("Press 'Any Key' to start setting up the game...\n");
+        AnyKey.pressAnyKeyToContinue();
     }
 
     private  static void SetMode() {
@@ -53,8 +54,6 @@ public class Game {
         Enum[] modes = {Mode.SINGLEPLAYER, Mode.MULTIPLAYER};
         // setting GameMode by passing in array to validator which will prompt what Enum is wanted
         Game.GameMode = (Mode) Validator.Mode(modes);
-
-        // TODO could possibily rewrite so it's not an enum array but the actual enum
     }
 
     private static void GenerateBots() {
@@ -109,8 +108,10 @@ public class Game {
         int rounds = Validator.Number(1, 10);
         Game.TotalRounds = rounds;
 
+        AnyKey.pressAnyKeyToContinue();
+
         for (int i = 0; i < rounds; i++) {
-            Round round = new Round(i, Game.Players, Game.Bots, Game.TotalRounds, Game.MaxNumberGuess);
+            Round round = new Round(i + 1, Game.Players, Game.Bots, Game.TotalRounds, Game.MaxNumberGuess);
             Game.Rounds.add(round);
         }
 

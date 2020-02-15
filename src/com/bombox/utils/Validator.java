@@ -19,6 +19,7 @@ public class Validator {
                 return Validator.Number(minNum, maxNum);
             } else {
                 // return valid input between minNum & maxNum with no errors
+                System.out.println("\n");
                 return guess;
             }
         }
@@ -69,6 +70,7 @@ public class Validator {
             return Validator.Name(minLength, maxLength);
         } else {
             // return valid input between minNum & maxNum with no errors
+            System.out.println("\n");
             return guess;
         }
     }
@@ -94,6 +96,7 @@ public class Validator {
                 return Validator.Mode(enums);
             } else {
                 // return valid input between minNum & maxNum with no errors
+                System.out.println("\n");
                 return enums[number - 1];
             }
         }
